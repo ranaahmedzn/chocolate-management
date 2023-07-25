@@ -40,6 +40,7 @@
 
               if($result){
                 while($row = mysqli_fetch_assoc($result)) {
+                  $id = $row['id'];
                   $image = $row['image'];
                   $name = $row['name'];
                   $country = $row['country'];
@@ -50,8 +51,8 @@
                           <td class="pt-4">'.$country.'</td>
                           <td class="pt-4">'.$category.'</td>
                           <td class="pt-4">
-                            <button class="btn btn-primary"><a class="text-white text-decoration-none" href="addChocolate.php">Update</a></button>
-                            <button class="btn btn-danger"><a class="text-white text-decoration-none" href="addChocolate.php">Delete</a></button>
+                            <button class="btn btn-primary"><a class="text-white text-decoration-none" href="updateChocolate.php?updateid='.$id.'">Update</a></button>
+                            <button class="btn btn-danger"><a class="text-white text-decoration-none" href="deleteChocolate.php?deleteid='.$id.'">Delete</a></button>
                           </td>
                         </tr>';
                 }
