@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
+.product-container{
+    width: 90%;
+}
+.heading{
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    width: 70%;
+    margin-bottom: 50px;
+    background-image: linear-gradient(to right, #2497D4,#466EDC);
+}
+table{
+    width: 100%;
+}
+
+table thead #heading-row{
+    background-image: linear-gradient(to right, #3297ce34,#466edc63);
+    border-radius: 20px;
+}
+
+table tbody #product-row{
+    border-bottom: 1px solid rgba(194, 194, 194, 0.432);
+}
+
+
+th, td{
+    padding: 18px 20px;
+}
+
+.update-btn{
+    border: none;
+    border-radius: 7px;
+    padding: 12px;
+    margin-right: 10px;
+}
+.delete-btn{
+    border: none;    
+    border-radius: 7px;
+    padding: 12px;
+    margin-right: 10px;
+}
+.submit-btn{
+    border: none;
+    border-radius: 7px;
+    padding: 10px 20px;
+    color: white;
+    background-image: linear-gradient(to right, #2497D4,#466EDC);
+}

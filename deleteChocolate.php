@@ -6,7 +6,7 @@
         $sql = "DELETE FROM crud WHERE id=$id";
         
         if (mysqli_query($conn, $sql)) {
-            header('location:displayChocolate.php');
+            header('location:index.php');
         }
     }
 ?>

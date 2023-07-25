@@ -10,20 +10,26 @@
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="style.css">
+    <!-- font awesome link -->
+    <script src="https://kit.fontawesome.com/e713737a14.js" crossorigin="anonymous"></script>
   </head>
-  <body>
-    <div class="bg-secondary-subtle py-5">
-      <div class="w-75 mx-auto bg-white rounded-3 p-5">
-        <h2
-          class="bg-black w-75 text-white mx-auto text-center py-2 mb-4 rounded-3"
+  <body class="bg-secondary-subtle">
+    <div class="container py-5">
+      <div class="product-container mx-auto bg-white shadow-md rounded-3 p-5">
+        <h2 class="bg-black text-white mx-auto text-center py-2 rounded-3 heading"
         >Chocolate Management System </h2>
-        <button class="border-0 bg-transparent">
-          <a class="text-black fw-bold text-decoration-none" href="addChocolate.php">New Chocolate</a>
+        <button class="border border-secondary-subtle bg-transparent rounded-1 p-2 mb-2">
+          <a class="text-black fw-medium text-decoration-none d-flex justify-content-center align-items-center gap-2" href="addChocolate.php">
+          <i class="fa-solid fa-plus"></i>  
+          <span>New Chocolate</span>
+          <img width="20" src="./chocolate-bar.png" alt="">
+          </a>
         </button>
 
-        <table class="table mt-3">
+        <table class="mt-3">
           <thead>
-          <tr>
+          <tr id="heading-row">
             <th scope="col">Image</th>
             <th scope="col">Name</th>
             <th scope="col">Country/Factory</th>
@@ -45,14 +51,17 @@
                   $name = $row['name'];
                   $country = $row['country'];
                   $category = $row['category'];
-                  echo '<tr>
+                  echo '<tr id="product-row">
                           <th><img class="rounded-3" width="70" src="'.$image.'" alt=""></th>
-                          <td class="pt-4">'.$name.'</td>
-                          <td class="pt-4">'.$country.'</td>
-                          <td class="pt-4">'.$category.'</td>
-                          <td class="pt-4">
-                            <button class="btn btn-primary"><a class="text-white text-decoration-none" href="updateChocolate.php?updateid='.$id.'">Update</a></button>
-                            <button class="btn btn-danger"><a class="text-white text-decoration-none" href="deleteChocolate.php?deleteid='.$id.'">Delete</a></button>
+                          <td>'.$name.'</td>
+                          <td>'.$country.'</td>
+                          <td>'.$category.'</td>
+                          <td>
+                            <button class="update-btn"><a class="text-primary text-decoration-none" href="updateChocolate.php?updateid='.$id.'"><i class="fa-regular fa-pen-to-square"></i></a></button>
+
+                            <button class="delete-btn"><a class="text-danger text-decoration-none" href="deleteChocolate.php?deleteid='.$id.'">
+                            <i class="fa-solid fa-trash-can"></i>
+                            </a></button>
                           </td>
                         </tr>';
                 }
