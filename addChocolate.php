@@ -1,6 +1,8 @@
 <?php
   include 'connection.php';
 
+  if(isset($_POST['name'])){
+
   $name = $_POST['name'];
   $image = $_POST['image'];
   $country = $_POST['country'];
@@ -8,12 +10,13 @@
 
   $sql = "INSERT INTO crud (image, name, country, category) VALUES ('$image', '$name', '$country', '$category')";
   
-  $query = mysqli_query($conn, $sql);
+  $result = mysqli_query($conn, $sql);
 
-  if ($query) {
+  if ($result) {
     // echo "New product inserted successfully";
   } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+  }
   }
 ?>
 
@@ -41,7 +44,7 @@
           Chocolate Management System
         </h2>
         <button class="border-0 bg-transparent">
-          <a class="text-black fw-bold text-decoration-none" href=""
+          <a class="text-black fw-bold text-decoration-none" href="displayChocolate.php"
             >All Chocolates</a
           >
         </button>
@@ -98,8 +101,7 @@
             <div class="mb-3 mt-4">
               <button
                 type="submit"
-                class="btn btn-dark w-100 fw-bold"
-              >
+                class="btn btn-dark w-100 fw-bold">
                 Submit
               </button>
             </div>
