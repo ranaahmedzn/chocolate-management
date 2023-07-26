@@ -1,5 +1,6 @@
 <?php
     include 'connection.php';
+    $updated = false;
 
     if(isset($_GET['updateid'])){
         $id = $_GET['updateid'];
@@ -24,7 +25,7 @@
             $sql = "UPDATE `crud` SET `image`='$image',`name`='$name',`country`='$country',`category`='$category' WHERE id=$id";
 
             if (mysqli_query($conn, $sql)) {
-            echo "Product updated successfully";
+              $updated = true;
             } else {
             echo "Error updating record: " . mysqli_error($conn);
             }
@@ -51,6 +52,13 @@
     <link rel="stylesheet" href="style.css">
     <!-- font awesome link -->
     <script src="https://kit.fontawesome.com/e713737a14.js" crossorigin="anonymous"></script>
+    <!-- sweetalert link -->
+    <script src="
+    https://cdn.jsdelivr.net/npm/sweetalert2@11.7.20/dist/sweetalert2.all.min.js
+    "></script>
+    <link href="
+    https://cdn.jsdelivr.net/npm/sweetalert2@11.7.20/dist/sweetalert2.min.css
+    " rel="stylesheet">
   </head>
   <body class="bg-secondary-subtle">
     <div class="container py-5">
@@ -131,5 +139,15 @@
         </div>
       </div>
     </div>
+
+    <script>
+      if(<?php echo $updated; ?>){
+        Swal.fire(
+            'Updated!',
+            'Your product has been updated.',
+            'success'
+          )
+      }
+    </script>
   </body>
 </html>

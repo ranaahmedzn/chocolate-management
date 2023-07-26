@@ -3,6 +3,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chocolate Management System</title>
+    <link rel="icon" type="image/x-icon" href="chocolate-bar.png"/>
     <!-- bootstrap link -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -57,11 +58,13 @@
                           <td>'.$country.'</td>
                           <td>'.$category.'</td>
                           <td>
-                            <button class="update-btn"><a class="text-primary text-decoration-none" href="updateChocolate.php?updateid='.$id.'"><i class="fa-regular fa-pen-to-square"></i></a></button>
+                            <a class="text-decoration-none" href="updateChocolate.php?updateid='.$id.'">
+                            <button class="update-btn"><i class="fa-regular fa-pen-to-square"></i>
+                            </button></a>
 
-                            <button class="delete-btn"><a class="text-danger text-decoration-none" href="deleteChocolate.php?deleteid='.$id.'">
-                            <i class="fa-solid fa-trash-can"></i>
-                            </a></button>
+                            <a class="btn-delete text-decoration-none" href="deleteChocolate.php?deleteid='.$id.'">
+                            <button class="delete-btn"><i class="fa-solid fa-trash-can"></i>
+                            </button></a>
                           </td>
                         </tr>';
                 }
@@ -71,5 +74,29 @@
         </table>
       </div>
     </div>
+
+    <script src="jquery-3.7.0.min.js"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <script>
+      $('.btn-delete').on('click', function (e) {
+        e.preventDefault();
+
+        const href = $(this).attr('href');
+
+        Swal.fire({
+          title: 'Are you sure?',
+          text: "You will not be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            document.location.href = href;
+          }
+        })
+      })
+    </script>
   </body>
 </html>

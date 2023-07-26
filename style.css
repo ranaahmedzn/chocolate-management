@@ -34,12 +34,14 @@ th, td{
     border-radius: 7px;
     padding: 12px;
     margin-right: 10px;
+    color: #466EDC;
 }
 .delete-btn{
     border: none;    
     border-radius: 7px;
     padding: 12px;
     margin-right: 10px;
+    color: rgba(255, 55, 55, 0.904);
 }
 .submit-btn{
     border: none;
